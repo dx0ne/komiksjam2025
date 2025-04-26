@@ -47,6 +47,7 @@ func _ready() -> void:
 
 	belt_timer.start()
 	
+	deplete_taken_tag();
 	hide_all_random_tags();
 	give_random_tag();
 	
@@ -72,7 +73,12 @@ func belt_timer_tick():
 		ts.slot = ts.slot + ts.dir;
 		if (ts.slot<0 or ts.slot>upper_belt_slots.size()-1):
 			print("spad");
-		
+			belt_items[i].marked_for_delete=true;
+	for i in range(belt_items.size()-1,-1,-1):
+		if(belt_items[i].marked_for_delete):
+			add_new_tshirt(belt_items[i].belt);
+			belt_items.remove_at(i);
+
 	hide_all_belt_slots();
 		
 	refresh_view_belt_slots()
@@ -118,25 +124,31 @@ func give_random_tag():
 	var allTags = [Constants.TAG.WASH, Constants.TAG.DRY, Constants.TAG.IRON];
 	randomized_tag = allTags.pick_random();
 	
-	print("randomized_tag",randomized_tag);
+	print("randomized_tag ",Constants.TAG.keys()[randomized_tag]);
 	match randomized_tag:
 		Constants.TAG.WASH:
 			%RandomWash.visible=true;
 		Constants.TAG.DRY:
-			%RandomIron.visible=true;
-		Constants.TAG.IRON:
 			%RandomDry.visible=true;
-			
+		Constants.TAG.IRON:
+			%RandomIron.visible=true;
+
 func hide_all_random_tags():
-		%RandomWash.visible=false;
-		%RandomIron.visible=false;
-		%RandomDry.visible=false;
-			
+	%RandomWash.visible=false;
+	%RandomDry.visible=false;
+	%RandomIron.visible=false;
+
 func take_random_tag():
 	hide_all_random_tags();
 	taken_randomized_tag = randomized_tag;
 	randomized_tag = Constants.TAG.NONE;
-
+	match taken_randomized_tag:
+		Constants.TAG.WASH:
+			%TakenWash.visible=true;
+		Constants.TAG.DRY:
+			%TakenDry.visible=true;
+		Constants.TAG.IRON:
+			%TakenIron.visible=true;
 
 func _on_player_action(type: Constants.ACTION) -> void:
 	match type:
@@ -146,7 +158,7 @@ func _on_player_action(type: Constants.ACTION) -> void:
 			trash();
 		Constants.ACTION.UP:
 			slap_tag(0);
-		Constants.ACTION.UP:
+		Constants.ACTION.DOWN:
 			slap_tag(1);
 			
 func trash():
@@ -171,15 +183,21 @@ func slap_tag(y_slot:bool):
 		return;
 	var fill_result:Constants.FILL_RESULT;
 	for i in belt_items.size():
-		if(i==player.x_slot):
+		if(belt_items[i].slot==player.x_slot):
 			#check if need takend tag
 			fill_result = belt_items[i].try_fill(taken_randomized_tag);
 			print(Constants.FILL_RESULT.keys()[fill_result]);
 			taken_randomized_tag = Constants.TAG.NONE;
+			refresh_view_belt_slots();
 			deplete_taken_tag();
-			
+			give_random_tag();
+			return;
+
 func deplete_taken_tag():
 	taken_randomized_tag = Constants.TAG.NONE;
-
+	%TakenWash.visible=false;
+	%TakenIron.visible=false;
+	%TakenDry.visible=false;
+	
 func process_points(fill_result:Constants.FILL_RESULT):
 	pass;

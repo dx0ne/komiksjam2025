@@ -24,11 +24,11 @@ func show_needed(tag:Constants.TAG):
 func show_filled(tag:Constants.TAG):
 	match tag:
 		Constants.TAG.WASH:
-			$LaundryIconWash.visible=true;
+			$LaundryIconWash2.visible=true;
 		Constants.TAG.DRY:
-			$LaundryIconDry.visible=true;
+			$LaundryIconDry2.visible=true;
 		Constants.TAG.IRON:
-			$LaundryIconIron.visible=true;
+			$LaundryIconIron2.visible=true;
 			
 func show_all_needed(ar:Array):
 	if(ar[0]==1):

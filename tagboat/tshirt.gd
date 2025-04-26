@@ -7,9 +7,13 @@ var tags:Array = [0,0,0];
 var tags_needed:Array = [0,0,0];
 var tags_filled:Array = [0,0,0];
 var dir:int=1;
+var marked_for_delete:bool=false;
 
 func try_fill(tag:Constants.TAG) -> Constants.FILL_RESULT:
 	var tgs_idx:int=0;
+	print("try ", Constants.TAG.keys()[tag]);
+	print("tags_needed ", tags_needed);
+	print("tags_filled ", tags_filled);
 	match tag:
 		Constants.TAG.WASH:
 			tgs_idx=0;
