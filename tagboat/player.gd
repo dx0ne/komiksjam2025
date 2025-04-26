@@ -14,11 +14,9 @@ func _physics_process(delta):
 	var do_signal:bool=false;
 	
 	if Input.is_action_just_pressed("go_left"):
-		print("left");
 		x_slot = max(0,x_slot-1);
 		do_signal=true;
 	if Input.is_action_just_pressed("go_right"):
-		print("right");
 		x_slot = min(max_x_slot,x_slot+1);
 		do_signal=true;
 	if Input.is_action_just_pressed("go_up"):

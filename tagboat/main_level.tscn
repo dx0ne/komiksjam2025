@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccqtceiee0kl5"]
+[gd_scene load_steps=12 format=3 uid="uid://ccqtceiee0kl5"]
 
 [ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="PackedScene" uid="uid://l8pts6tk37vx" path="res://player.tscn" id="2_bhu08"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dip0yjetq4ogb" path="res://art/player_slots/slot01.png" id="4_5ymk8"]
 [ext_resource type="Texture2D" uid="uid://8s77xg53eei8" path="res://art/belt_slots/belt_slot_00.png" id="5_4mnpp"]
 [ext_resource type="Texture2D" uid="uid://c08bc465m4pkn" path="res://art/belt_slots/belt_slot_01.png" id="6_ctebd"]
+[ext_resource type="PackedScene" uid="uid://cbtdcsxopxttv" path="res://tags.tscn" id="7_ctebd"]
+[ext_resource type="PackedScene" uid="uid://h7i5p1ri7ty3" path="res://held_items.tscn" id="8_eqmdw"]
+[ext_resource type="Texture2D" uid="uid://d1arnxvvqm1vb" path="res://art/icons/laundry_icon_wash_full.png" id="9_oeaww"]
+[ext_resource type="Texture2D" uid="uid://bjbqy6j0tanv7" path="res://art/icons/laundry_icon_iron_full.png" id="10_aonjr"]
+[ext_resource type="Texture2D" uid="uid://dqdw2tdbga11k" path="res://art/icons/laundry_icon_dry_full.png" id="11_do8ha"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6614m")
@@ -18,52 +23,52 @@ script = ExtResource("1_6614m")
 position = Vector2(28, 22)
 
 [node name="Slot00" type="Sprite2D" parent="playerLayer"]
-position = Vector2(189, 293.5)
+position = Vector2(193, 256)
 texture = ExtResource("3_05as6")
 metadata/_edit_group_ = true
 
 [node name="Slot01" type="Sprite2D" parent="playerLayer"]
-position = Vector2(397, 301.5)
+position = Vector2(358, 257)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
 [node name="Slot02" type="Sprite2D" parent="playerLayer"]
-position = Vector2(573, 301.5)
+position = Vector2(541, 254.5)
 texture = ExtResource("3_05as6")
 metadata/_edit_group_ = true
 
 [node name="Slot03" type="Sprite2D" parent="playerLayer"]
-position = Vector2(765, 293.5)
+position = Vector2(709, 256)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
 [node name="Slot04" type="Sprite2D" parent="playerLayer"]
-position = Vector2(965, 301.5)
+position = Vector2(871, 260)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
 [node name="Slot10" type="Sprite2D" parent="playerLayer"]
-position = Vector2(189, 452.5)
+position = Vector2(191, 406.5)
 texture = ExtResource("3_05as6")
 metadata/_edit_group_ = true
 
 [node name="Slot11" type="Sprite2D" parent="playerLayer"]
-position = Vector2(390, 460)
+position = Vector2(367, 403)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
 [node name="Slot12" type="Sprite2D" parent="playerLayer"]
-position = Vector2(581, 452.5)
+position = Vector2(550, 399)
 texture = ExtResource("3_05as6")
 metadata/_edit_group_ = true
 
 [node name="Slot13" type="Sprite2D" parent="playerLayer"]
-position = Vector2(765, 444.5)
+position = Vector2(709, 401)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
 [node name="Slot14" type="Sprite2D" parent="playerLayer"]
-position = Vector2(965, 436.5)
+position = Vector2(887, 400)
 texture = ExtResource("4_5ymk8")
 metadata/_edit_group_ = true
 
@@ -76,15 +81,87 @@ position = Vector2(382, 138)
 texture = ExtResource("6_ctebd")
 
 [node name="BeltSlot02" type="Sprite2D" parent="playerLayer"]
-position = Vector2(566, 138)
+position = Vector2(533, 139.5)
 texture = ExtResource("5_4mnpp")
 
 [node name="BeltSlot03" type="Sprite2D" parent="playerLayer"]
-position = Vector2(758, 138)
+position = Vector2(725, 139.5)
 texture = ExtResource("6_ctebd")
 
 [node name="BeltSlot04" type="Sprite2D" parent="playerLayer"]
-position = Vector2(958, 138)
+position = Vector2(869, 142)
 texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot10" type="Sprite2D" parent="playerLayer"]
+position = Vector2(190, 532.5)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot11" type="Sprite2D" parent="playerLayer"]
+position = Vector2(363, 527)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot12" type="Sprite2D" parent="playerLayer"]
+position = Vector2(565, 530)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot13" type="Sprite2D" parent="playerLayer"]
+position = Vector2(718, 523)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot14" type="Sprite2D" parent="playerLayer"]
+position = Vector2(902, 530)
+texture = ExtResource("6_ctebd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Node2D" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(123, 15)
+
+[node name="Node2D2" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(320, 15)
+
+[node name="Node2D3" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(473, 15)
+
+[node name="Node2D4" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(655, 15)
+
+[node name="Node2D5" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(813, 16)
+
+[node name="Node2D6" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(115, 599)
+
+[node name="Node2D7" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(316, 599)
+
+[node name="Node2D8" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(500, 594)
+
+[node name="Node2D10" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(673, 596)
+
+[node name="Node2D9" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
+position = Vector2(838, 594)
+
+[node name="Node2D" parent="." instance=ExtResource("8_eqmdw")]
+position = Vector2(973, 479)
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="LaundryIconWashFull" type="Sprite2D" parent="Node2D2"]
+position = Vector2(47, 237)
+scale = Vector2(0.404412, 0.404412)
+texture = ExtResource("9_oeaww")
+
+[node name="LaundryIconIronFull" type="Sprite2D" parent="Node2D2"]
+position = Vector2(98, 253)
+scale = Vector2(0.507353, 0.507353)
+texture = ExtResource("10_aonjr")
+
+[node name="LaundryIconDryFull" type="Sprite2D" parent="Node2D2"]
+position = Vector2(51, 292)
+scale = Vector2(0.382353, 0.382353)
+texture = ExtResource("11_do8ha")
 
 [connection signal="moved" from="playerLayer/Player" to="." method="_on_player_moved"]

@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccqtceiee0kl5"]
+
+[ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
+[ext_resource type="PackedScene" uid="uid://l8pts6tk37vx" path="res://player.tscn" id="2_bhu08"]
+[ext_resource type="Texture2D" uid="uid://cnuxttl477wd8" path="res://art/player_slots/slot00.png" id="3_05as6"]
+[ext_resource type="Texture2D" uid="uid://dip0yjetq4ogb" path="res://art/player_slots/slot01.png" id="4_5ymk8"]
+[ext_resource type="Texture2D" uid="uid://8s77xg53eei8" path="res://art/belt_slots/belt_slot_00.png" id="5_4mnpp"]
+[ext_resource type="Texture2D" uid="uid://c08bc465m4pkn" path="res://art/belt_slots/belt_slot_01.png" id="6_ctebd"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6614m")
+
+[node name="bgLayer" type="CanvasLayer" parent="."]
+
+[node name="playerLayer" type="CanvasLayer" parent="."]
+
+[node name="Player" parent="playerLayer" instance=ExtResource("2_bhu08")]
+position = Vector2(28, 22)
+
+[node name="Slot00" type="Sprite2D" parent="playerLayer"]
+position = Vector2(189, 293.5)
+texture = ExtResource("3_05as6")
+metadata/_edit_group_ = true
+
+[node name="Slot01" type="Sprite2D" parent="playerLayer"]
+position = Vector2(397, 301.5)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="Slot02" type="Sprite2D" parent="playerLayer"]
+position = Vector2(573, 301.5)
+texture = ExtResource("3_05as6")
+metadata/_edit_group_ = true
+
+[node name="Slot03" type="Sprite2D" parent="playerLayer"]
+position = Vector2(765, 293.5)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="Slot04" type="Sprite2D" parent="playerLayer"]
+position = Vector2(965, 301.5)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="Slot10" type="Sprite2D" parent="playerLayer"]
+position = Vector2(189, 452.5)
+texture = ExtResource("3_05as6")
+metadata/_edit_group_ = true
+
+[node name="Slot11" type="Sprite2D" parent="playerLayer"]
+position = Vector2(390, 460)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="Slot12" type="Sprite2D" parent="playerLayer"]
+position = Vector2(581, 452.5)
+texture = ExtResource("3_05as6")
+metadata/_edit_group_ = true
+
+[node name="Slot13" type="Sprite2D" parent="playerLayer"]
+position = Vector2(765, 444.5)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="Slot14" type="Sprite2D" parent="playerLayer"]
+position = Vector2(965, 436.5)
+texture = ExtResource("4_5ymk8")
+metadata/_edit_group_ = true
+
+[node name="BeltSlot00" type="Sprite2D" parent="playerLayer"]
+position = Vector2(186, 136.5)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot01" type="Sprite2D" parent="playerLayer"]
+position = Vector2(382, 138)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot02" type="Sprite2D" parent="playerLayer"]
+position = Vector2(566, 138)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot03" type="Sprite2D" parent="playerLayer"]
+position = Vector2(758, 138)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot04" type="Sprite2D" parent="playerLayer"]
+position = Vector2(958, 138)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot10" type="Sprite2D" parent="playerLayer"]
+position = Vector2(189, 606.5)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot11" type="Sprite2D" parent="playerLayer"]
+position = Vector2(385, 608)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot12" type="Sprite2D" parent="playerLayer"]
+position = Vector2(569, 608)
+texture = ExtResource("5_4mnpp")
+
+[node name="BeltSlot13" type="Sprite2D" parent="playerLayer"]
+position = Vector2(761, 608)
+texture = ExtResource("6_ctebd")
+
+[node name="BeltSlot14" type="Sprite2D" parent="playerLayer"]
+position = Vector2(961, 608)
+texture = ExtResource("5_4mnpp")
+
+[connection signal="moved" from="playerLayer/Player" to="." method="_on_player_moved"]
