@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjbqy6j0tanv7"
-path="res://.godot/imported/laundry_icon_iron_full.png-f2f849a9c75681b769d50c0cb212474d.ctex"
+path="res://.godot/imported/laundry_icon_iron_full.png-4d109a44c0417ee6fde03fc09f81c888.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/laundry_icon_iron_full.png"
-dest_files=["res://.godot/imported/laundry_icon_iron_full.png-f2f849a9c75681b769d50c0cb212474d.ctex"]
+source_file="res://art/tags/laundry_icon_iron_full.png"
+dest_files=["res://.godot/imported/laundry_icon_iron_full.png-4d109a44c0417ee6fde03fc09f81c888.ctex"]
 
 [params]
 

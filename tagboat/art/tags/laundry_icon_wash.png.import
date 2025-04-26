@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1arnxvvqm1vb"
-path="res://.godot/imported/laundry_icon_wash_full.png-347edef9beeb413ec802345335d1f518.ctex"
+uid="uid://dq3fteo23wpdg"
+path="res://.godot/imported/laundry_icon_wash.png-5d571f9c1743bd839a5c5157d1714232.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/icons/laundry_icon_wash_full.png"
-dest_files=["res://.godot/imported/laundry_icon_wash_full.png-347edef9beeb413ec802345335d1f518.ctex"]
+source_file="res://art/tags/laundry_icon_wash.png"
+dest_files=["res://.godot/imported/laundry_icon_wash.png-5d571f9c1743bd839a5c5157d1714232.ctex"]
 
 [params]
 

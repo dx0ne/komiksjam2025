@@ -194,25 +194,5 @@ unique_name_in_owner = true
 position = Vector2(1034, 401)
 sprite_frames = SubResource("SpriteFrames_ah7fh")
 
-[node name="TakenTags" type="Node2D" parent="."]
-
-[node name="TakenWash" type="Sprite2D" parent="TakenTags"]
-unique_name_in_owner = true
-position = Vector2(47, 237)
-scale = Vector2(0.404412, 0.404412)
-texture = ExtResource("9_oeaww")
-
-[node name="TakenIron" type="Sprite2D" parent="TakenTags"]
-unique_name_in_owner = true
-position = Vector2(98, 253)
-scale = Vector2(0.507353, 0.507353)
-texture = ExtResource("10_aonjr")
-
-[node name="TakenDry" type="Sprite2D" parent="TakenTags"]
-unique_name_in_owner = true
-position = Vector2(51, 292)
-scale = Vector2(0.382353, 0.382353)
-texture = ExtResource("11_do8ha")
-
 [connection signal="action" from="playerLayer/Player" to="." method="_on_player_action"]
 [connection signal="moved" from="playerLayer/Player" to="." method="_on_player_moved"]

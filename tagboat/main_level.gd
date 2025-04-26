@@ -8,8 +8,8 @@ extends Node2D
 @onready var upper_tags:Array[Tags] = [$CanvasLayer/Node2D, $CanvasLayer/Node2D2, $CanvasLayer/Node2D3, $CanvasLayer/Node2D4, $CanvasLayer/Node2D5];
 @onready var lower_tags:Array[Tags] = [$CanvasLayer/Node2D6, $CanvasLayer/Node2D7, $CanvasLayer/Node2D8, $CanvasLayer/Node2D10, $CanvasLayer/Node2D9];
 
-@onready var upper_belt_slots:Array[Sprite2D] = [$playerLayer/BeltSlot00, $playerLayer/BeltSlot01, $playerLayer/BeltSlot02, $playerLayer/BeltSlot03, $playerLayer/BeltSlot04];
-@onready var lower_belt_slots:Array[Sprite2D] = [$playerLayer/BeltSlot10, $playerLayer/BeltSlot11, $playerLayer/BeltSlot12, $playerLayer/BeltSlot13, $playerLayer/BeltSlot14];
+@onready var upper_belt_slots:Array[Sprite2D] = [$tshirtLayer/BeltSlot00, $tshirtLayer/BeltSlot01, $tshirtLayer/BeltSlot02, $tshirtLayer/BeltSlot03, $tshirtLayer/BeltSlot04];
+@onready var lower_belt_slots:Array[Sprite2D] = [$tshirtLayer/BeltSlot10, $tshirtLayer/BeltSlot11, $tshirtLayer/BeltSlot12, $tshirtLayer/BeltSlot13, $tshirtLayer/BeltSlot14];
 var upper_belt:Array[Tshirt];
 var lower_belt:Array[Tshirt];
 
@@ -21,6 +21,10 @@ var belt_timer:Timer;
 
 var randomized_tag:Constants.TAG = Constants.TAG.NONE;
 var taken_randomized_tag:Constants.TAG = Constants.TAG.NONE;
+
+var trash_fill:int=0;
+
+var points:int = 0;
 
 func _ready() -> void:
 	player = $playerLayer/Player;
@@ -43,7 +47,9 @@ func _ready() -> void:
 
 	belt_timer.start()
 	
+	hide_all_random_tags();
 	give_random_tag();
+	
 
 func _on_player_moved(x: Variant, y: Variant) -> void:
 	hide_all_player_slots()
@@ -86,8 +92,16 @@ func refresh_view_belt_slots():
 		if(belt_items[i].slot<0 or belt_items[i].slot>upper_belt_slots.size()-1):
 			continue;
 		if(belt_items[i].belt==0):
+			upper_tags[belt_items[i].slot].hide_all();
+			upper_tags[belt_items[i].slot].show_all_needed(belt_items[i].tags_needed);
+			upper_tags[belt_items[i].slot].show_all_filled(belt_items[i].tags_filled);
+			upper_tags[belt_items[i].slot].visible = true;
 			upper_belt_slots[belt_items[i].slot].visible = true;
 		else:
+			lower_tags[belt_items[i].slot].hide_all();
+			lower_tags[belt_items[i].slot].show_all_needed(belt_items[i].tags_needed);
+			lower_tags[belt_items[i].slot].show_all_filled(belt_items[i].tags_filled);
+			lower_tags[belt_items[i].slot].visible = true;
 			lower_belt_slots[belt_items[i].slot].visible = true;
 		
 var thisrt_class = load("res://tshirt.gd")
@@ -96,23 +110,76 @@ func add_new_tshirt(belt:int):
 	if( belt==0):
 		ts.slot=4;
 		ts.dir=-1;
-	ts.tags[randi_range(0,2)]=1;
+	ts.tags_needed[randi_range(0,2)]=1;
 	ts.belt=belt;
 	belt_items.append(ts);
 
 func give_random_tag():
-	randomized_tag = Constants.TAG.keys()[randi() % Constants.TAG.size()];
+	var allTags = [Constants.TAG.WASH, Constants.TAG.DRY, Constants.TAG.IRON];
+	randomized_tag = allTags.pick_random();
+	
+	print("randomized_tag",randomized_tag);
 	match randomized_tag:
 		Constants.TAG.WASH:
-			$Node2D2/LaundryIconWashFull.visible=true;
+			%RandomWash.visible=true;
 		Constants.TAG.DRY:
-			$Node2D2/LaundryIconIronFull.visible=true;
+			%RandomIron.visible=true;
 		Constants.TAG.IRON:
-			$Node2D2/LaundryIconDryFull.visible=true;
-
+			%RandomDry.visible=true;
+			
+func hide_all_random_tags():
+		%RandomWash.visible=false;
+		%RandomIron.visible=false;
+		%RandomDry.visible=false;
+			
 func take_random_tag():
-		$Node2D2/LaundryIconWashFull.visible=false;
-		$Node2D2/LaundryIconIronFull.visible=false;
-		$Node2D2/LaundryIconDryFull.visible=false;
-		taken_randomized_tag = randomized_tag;
-		randomized_tag = Constants.TAG.NONE;
+	hide_all_random_tags();
+	taken_randomized_tag = randomized_tag;
+	randomized_tag = Constants.TAG.NONE;
+
+
+func _on_player_action(type: Constants.ACTION) -> void:
+	match type:
+		Constants.ACTION.TAKE_TAG:
+			take_random_tag();
+		Constants.ACTION.TRASH:
+			trash();
+		Constants.ACTION.UP:
+			slap_tag(0);
+		Constants.ACTION.UP:
+			slap_tag(1);
+			
+func trash():
+	if(taken_randomized_tag==Constants.TAG.NONE):
+		print("no item");
+		return;
+	if(trash_fill==3):
+		print("trash full");
+		%Trash.frame=0;
+		trash_fill=0;
+		return;
+		
+	deplete_taken_tag();
+	give_random_tag();
+	trash_fill+=1;
+	%Trash.frame=trash_fill;
+	pass;
+
+func slap_tag(y_slot:bool):
+	if(taken_randomized_tag==Constants.TAG.NONE):
+		print("no item");
+		return;
+	var fill_result:Constants.FILL_RESULT;
+	for i in belt_items.size():
+		if(i==player.x_slot):
+			#check if need takend tag
+			fill_result = belt_items[i].try_fill(taken_randomized_tag);
+			print(Constants.FILL_RESULT.keys()[fill_result]);
+			taken_randomized_tag = Constants.TAG.NONE;
+			deplete_taken_tag();
+			
+func deplete_taken_tag():
+	taken_randomized_tag = Constants.TAG.NONE;
+
+func process_points(fill_result:Constants.FILL_RESULT):
+	pass;

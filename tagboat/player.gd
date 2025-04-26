@@ -10,22 +10,46 @@ var y_slot:int = 0;
 
 signal moved(x,y);
 
+signal action(type:Constants.ACTION);
+
 func _physics_process(delta):
-	var do_signal:bool=false;
+	var do_moved_signal:bool=false;
 	
 	if Input.is_action_just_pressed("go_left"):
-		x_slot = max(0,x_slot-1);
-		do_signal=true;
+		if(x_slot==0):
+			print("action left");
+			if(y_slot==0):
+				action.emit(Constants.ACTION.TAKE_TAG);
+		else:
+			x_slot = max(0,x_slot-1);
+			do_moved_signal=true;
+			
 	if Input.is_action_just_pressed("go_right"):
-		x_slot = min(max_x_slot,x_slot+1);
-		do_signal=true;
+		if(x_slot==max_x_slot):
+			if(y_slot==0):
+				action.emit(Constants.ACTION.ROCKET);
+			else:
+				action.emit(Constants.ACTION.TRASH);
+		else:
+			x_slot = min(max_x_slot,x_slot+1);
+			do_moved_signal=true;
+			
 	if Input.is_action_just_pressed("go_up"):
-		y_slot = max(0,y_slot-1);
-		do_signal=true;
+		if(y_slot==0):
+			print("action up");
+			action.emit(Constants.ACTION.UP);
+		else:
+			y_slot = max(0,y_slot-1);
+			do_moved_signal=true;
+			
 	if Input.is_action_just_pressed("go_down"):
-		y_slot = min(max_y_slot,y_slot+1);
-		do_signal=true;
+		if(y_slot==max_y_slot):
+			print("action down");
+			action.emit(Constants.ACTION.DOWN);
+		else:
+			y_slot = min(max_y_slot,y_slot+1);
+			do_moved_signal=true;
 	
-	if(do_signal):
+	if(do_moved_signal):
 		#print(x_slot,y_slot);
 		moved.emit(x_slot,y_slot);
