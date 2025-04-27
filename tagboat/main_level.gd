@@ -140,6 +140,14 @@ func add_new_tshirt(belt:int):
 func give_random_tag():
 	var allTags = [Constants.TAG.WASH, Constants.TAG.DRY, Constants.TAG.IRON];
 	randomized_tag = allTags.pick_random();
+	var r:Constants.TAG;
+	if(randi_range(0,10)>5):
+		if(belt_items.size()>0):
+			for i in belt_items.size():
+				r = belt_items[i].give_unfilled();
+				if(r!=Constants.TAG.NONE):
+					randomized_tag = r;
+			
 	
 	print("randomized_tag ",Constants.TAG.keys()[randomized_tag]);
 	match randomized_tag:
@@ -238,20 +246,32 @@ func process_points(fill_result:Constants.FILL_RESULT):
 
 func action_buildup_rocket():
 	print("buildup_rocket");
-	if(points>=5):
-		points -= 5;
 	var r:Rocket = $HUD/Rocket;
-	r.add();
+	if(points>=3):
+		points -= 3;
+		r.add();
 	if(r.elements>=5):
 		print("WIN")
-		$".".get_tree().change_scene_to_file("res://win_screen.tscn")
+		belt_timer.stop();
+		hide_all_player_slots();
+		var winTimer:Timer = Timer.new();
+		winTimer.wait_time=1;
+		winTimer.connect("timeout",go_win_screen);
+		winTimer.one_shot=true;
+		add_child(winTimer)
+		winTimer.start();
+		
 
+func go_win_screen():
+	$".".get_tree().change_scene_to_file("res://win_screen.tscn")
+	
 func loose_life():
 	print("loose life");
 	lifes-=1;
 	%Lifes.set_lifes(lifes);
 	if(lifes<=0):
 		print("GAME OVER")
+		belt_timer.stop();
 		$".".get_tree().change_scene_to_file("res://gameover_screen.tscn")
 #		get_node("/root/global").goto_scene("res://gameover_screen.tscn")
 		#get_tree().change_scene_to_file("res://gameover_screen.tscn")

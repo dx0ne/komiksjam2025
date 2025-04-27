@@ -53,3 +53,12 @@ func is_fully_filled() -> bool:
 		return false;
 	print("all good ",tags_needed," ",tags_filled)
 	return true;
+
+func give_unfilled() -> Constants.TAG:
+	if(tags_needed[0]==1 and tags_filled[0]==0):
+		return Constants.TAG.WASH;
+	if(tags_needed[1]==1 and tags_filled[1]==0):
+		return Constants.TAG.DRY;
+	if(tags_needed[2]==1 and tags_filled[2]==0):
+		return Constants.TAG.IRON;
+	return Constants.TAG.NONE;
