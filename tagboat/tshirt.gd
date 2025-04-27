@@ -28,3 +28,28 @@ func try_fill(tag:Constants.TAG) -> Constants.FILL_RESULT:
 		return Constants.FILL_RESULT.OVERFILLED;
 	tags_filled[tgs_idx]=1;
 	return Constants.FILL_RESULT.FILLED;
+
+func score() -> int:
+	var sumScore:int=0;
+	sumScore+=part_score(0);
+	sumScore+=part_score(1);
+	sumScore+=part_score(2);
+	return sumScore;
+
+func part_score(i:int=0) -> int:
+	var ret:int=0;
+	if(tags_needed[i]==1 and tags_filled[i]==1):
+		return 1;
+	if(tags_needed[i]<0):
+		return tags_needed[i];
+	return 0;
+
+func is_fully_filled() -> bool:
+	if(tags_needed[0]==1 and tags_filled[0]==0):
+		return false;
+	if(tags_needed[1]==1 and tags_filled[1]==0):
+		return false;
+	if(tags_needed[2]==1 and tags_filled[2]==0):
+		return false;
+	print("all good ",tags_needed," ",tags_filled)
+	return true;

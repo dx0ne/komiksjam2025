@@ -26,6 +26,11 @@ var trash_fill:int=0;
 
 var points:int = 0;
 
+var lifes:int = 3;
+var spawntimer:Timer = Timer.new();
+
+var lastSpawnedBelt:int=0;
+
 func _ready() -> void:
 	player = $playerLayer/Player;
 	player.max_x_slot = upper_player_slots.size()-1;
@@ -34,9 +39,6 @@ func _ready() -> void:
 	belt_timer.connect("timeout",belt_timer_tick);
 	belt_timer.wait_time = belt_interval
 	add_child(belt_timer)
-	
-	add_new_tshirt(0);
-	add_new_tshirt(1);
 	
 	#hide matrix
 	hide_all_player_slots();
@@ -51,6 +53,15 @@ func _ready() -> void:
 	hide_all_random_tags();
 	give_random_tag();
 	
+	
+	spawntimer.one_shot=true;
+	spawntimer.wait_time=1;
+	spawntimer.connect("timeout",after_start);
+	add_child(spawntimer)
+	spawntimer.start();
+
+func after_start():
+	add_new_tshirt(0);
 
 func _on_player_moved(x: Variant, y: Variant) -> void:
 	hide_all_player_slots()
@@ -75,10 +86,12 @@ func belt_timer_tick():
 		ts.slot = ts.slot + ts.dir;
 		if (ts.slot<0 or ts.slot>upper_belt_slots.size()-1):
 			print("spad");
+			if(ts.is_fully_filled()==false):
+				loose_life();
 			belt_items[i].marked_for_delete=true;
 	for i in range(belt_items.size()-1,-1,-1):
 		if(belt_items[i].marked_for_delete):
-			add_new_tshirt(belt_items[i].belt);
+			spawn_another_tshirt();#add_new_tshirt(belt_items[i].belt);
 			belt_items.remove_at(i);
 
 	hide_all_belt_slots();
@@ -140,7 +153,7 @@ func hide_all_random_tags():
 	%RandomDry.visible=false;
 	%RandomIron.visible=false;
 
-func take_random_tag():
+func action_take_random_tag():
 	hide_all_random_tags();
 	taken_randomized_tag = randomized_tag;
 	randomized_tag = Constants.TAG.NONE;
@@ -153,20 +166,23 @@ func take_random_tag():
 			%TakenIron.visible=true;
 
 func _on_player_action(type: Constants.ACTION) -> void:
+	print("action: ",Constants.ACTION.keys()[type]);
 	match type:
 		Constants.ACTION.TAKE_TAG:
-			take_random_tag();
+			action_take_random_tag();
 		Constants.ACTION.TRASH:
-			trash();
+			action_trash();
 		Constants.ACTION.UP:
-			slap_tag(0);
+			action_slap_tag(0);
 		Constants.ACTION.DOWN:
-			slap_tag(1);
+			action_slap_tag(1);
+		Constants.ACTION.ROCKET:
+			action_buildup_rocket();
 			
-func trash():
-	if(taken_randomized_tag==Constants.TAG.NONE):
-		print("no item");
-		return;
+func action_trash():
+#	if(taken_randomized_tag==Constants.TAG.NONE):
+#		print("no item");
+#		return;
 	if(trash_fill==3):
 		print("trash full");
 		%Trash.frame=0;
@@ -179,7 +195,7 @@ func trash():
 	%Trash.frame=trash_fill;
 	pass;
 
-func slap_tag(y_slot:int):
+func action_slap_tag(y_slot:int):
 	if(taken_randomized_tag==Constants.TAG.NONE):
 		print("no item");
 		return;
@@ -191,6 +207,7 @@ func slap_tag(y_slot:int):
 			fill_result = belt_items[i].try_fill(taken_randomized_tag);
 			print(Constants.FILL_RESULT.keys()[fill_result]);
 			taken_randomized_tag = Constants.TAG.NONE;
+			sumbit_points(fill_result);
 			refresh_view_belt_slots();
 			deplete_taken_tag();
 			give_random_tag();
@@ -200,6 +217,14 @@ func slap_tag(y_slot:int):
 				lower_player_slots[player.x_slot].frame=1;
 			return;
 
+func sumbit_points(res:Constants.FILL_RESULT):
+	match res:
+		Constants.FILL_RESULT.FILLED:
+			points+=1;
+		Constants.FILL_RESULT.NOT_NEEDED:
+			points-=1;
+	$HUD/Points.text=str(points);
+
 func deplete_taken_tag():
 	taken_randomized_tag = Constants.TAG.NONE;
 	%TakenWash.visible=false;
@@ -208,3 +233,29 @@ func deplete_taken_tag():
 	
 func process_points(fill_result:Constants.FILL_RESULT):
 	pass;
+
+func action_buildup_rocket():
+	print("buildup_rocket");
+	if(points>=5):
+		points -= 5;
+	var r:Rocket = $HUD/Rocket;
+	r.add();
+	if(r.elements>=1):
+		print("WIN")
+		$".".get_tree().change_scene_to_file("res://win_screen.tscn")
+
+func loose_life():
+	print("loose life");
+	lifes-=1;
+	if(lifes<=0):
+		print("GAME OVER")
+		$".".get_tree().change_scene_to_file("res://gameover_screen.tscn")
+#		get_node("/root/global").goto_scene("res://gameover_screen.tscn")
+		#get_tree().change_scene_to_file("res://gameover_screen.tscn")
+
+func spawn_another_tshirt():
+	if(lastSpawnedBelt==0):
+		lastSpawnedBelt=1;
+	else:
+		lastSpawnedBelt=0;
+	add_new_tshirt(lastSpawnedBelt);

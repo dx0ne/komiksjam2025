@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt2vpwdusl0th"]
+
+[ext_resource type="Script" uid="uid://c04f8tw5wepcw" path="res://gameover_screen.gd" id="1_no4x2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp1qe"]
+font_size = 48
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_no4x2")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 449.0
+offset_top = 245.0
+offset_right = 725.0
+offset_bottom = 312.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_dp1qe")
