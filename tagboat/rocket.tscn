@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfjt7a6d15afl"]
+[gd_scene load_steps=8 format=3 uid="uid://bfjt7a6d15afl"]
 
 [ext_resource type="Script" uid="uid://bvf86pty5y1t8" path="res://rocket.gd" id="1_fj03e"]
 [ext_resource type="Texture2D" uid="uid://bt2daiuimc5dr" path="res://art/rocket/rocket_outline.png" id="2_r2l15"]
@@ -8,17 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ftry4tni0536" path="res://art/rocket/rocket_right.png" id="5_546ky"]
 [ext_resource type="Texture2D" uid="uid://bpky8b5fkindn" path="res://art/rocket/rocket_head.png" id="6_awr8v"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ww0uh"]
-font_color = Color(0.0833333, 1, 0, 1)
-
 [node name="Rocket" type="Node2D"]
 script = ExtResource("1_fj03e")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "ROCKET"
-label_settings = SubResource("LabelSettings_ww0uh")
 
 [node name="RocketOutline" type="Sprite2D" parent="."]
 position = Vector2(61, 74)

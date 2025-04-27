@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ccqtceiee0kl5"]
+[gd_scene load_steps=43 format=3 uid="uid://ccqtceiee0kl5"]
 
 [ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Texture2D" uid="uid://c6svltwg3lesa" path="res://art/maschine/Roll_00.png" id="2_8m212"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dar6quq64ekd5" path="res://art/tags/laundry_icon_dry.png" id="25_2px6s"]
 [ext_resource type="Texture2D" uid="uid://dq3fteo23wpdg" path="res://art/tags/laundry_icon_wash.png" id="25_3brdo"]
 [ext_resource type="Texture2D" uid="uid://c8dptsxx88emv" path="res://art/tags/laundry_icon_iron.png" id="25_7256s"]
+[ext_resource type="PackedScene" uid="uid://beobgxurrrert" path="res://hud_lifes.tscn" id="29_s8c5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2px6s"]
 animations = [{
@@ -515,6 +516,10 @@ offset_right = 1107.0
 offset_bottom = 68.0
 text = "00"
 label_settings = SubResource("LabelSettings_xqiim")
+
+[node name="Lifes" parent="HUD" instance=ExtResource("29_s8c5p")]
+unique_name_in_owner = true
+position = Vector2(7, 249)
 
 [connection signal="action" from="playerLayer/Player" to="." method="_on_player_action"]
 [connection signal="moved" from="playerLayer/Player" to="." method="_on_player_moved"]

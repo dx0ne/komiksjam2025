@@ -31,6 +31,8 @@ var spawntimer:Timer = Timer.new();
 
 var lastSpawnedBelt:int=0;
 
+var is_fullscreen = false
+
 func _ready() -> void:
 	player = $playerLayer/Player;
 	player.max_x_slot = upper_player_slots.size()-1;
@@ -240,13 +242,14 @@ func action_buildup_rocket():
 		points -= 5;
 	var r:Rocket = $HUD/Rocket;
 	r.add();
-	if(r.elements>=1):
+	if(r.elements>=5):
 		print("WIN")
 		$".".get_tree().change_scene_to_file("res://win_screen.tscn")
 
 func loose_life():
 	print("loose life");
 	lifes-=1;
+	%Lifes.set_lifes(lifes);
 	if(lifes<=0):
 		print("GAME OVER")
 		$".".get_tree().change_scene_to_file("res://gameover_screen.tscn")
@@ -259,3 +262,11 @@ func spawn_another_tshirt():
 	else:
 		lastSpawnedBelt=0;
 	add_new_tshirt(lastSpawnedBelt);
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("quit"):
+		$".".get_tree().quit();
+	if event.is_action_released("fullscreen"):
+		var mode := DisplayServer.window_get_mode()
+		var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)

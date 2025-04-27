@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://beobgxurrrert"]
+
+[ext_resource type="Texture2D" uid="uid://cuux3swflq5cv" path="res://art/rocket/filled_dot.png" id="1_byuqp"]
+[ext_resource type="Script" uid="uid://bu84wkyhpha0h" path="res://hud_lifes.gd" id="1_yb0cq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yb0cq")
+
+[node name="FilledDot" type="Sprite2D" parent="."]
+position = Vector2(30, 25)
+texture = ExtResource("1_byuqp")
+
+[node name="FilledDot2" type="Sprite2D" parent="."]
+position = Vector2(32, 78)
+texture = ExtResource("1_byuqp")
+
+[node name="FilledDot3" type="Sprite2D" parent="."]
+position = Vector2(33, 130)
+texture = ExtResource("1_byuqp")
