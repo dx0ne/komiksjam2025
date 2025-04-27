@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfjt7a6d15afl"]
+[gd_scene load_steps=5 format=3 uid="uid://bfjt7a6d15afl"]
 
 [ext_resource type="Script" uid="uid://bvf86pty5y1t8" path="res://rocket.gd" id="1_fj03e"]
+[ext_resource type="Texture2D" uid="uid://bt2daiuimc5dr" path="res://art/rocket/rocket_outline.png" id="2_r2l15"]
+[ext_resource type="Texture2D" uid="uid://cuux3swflq5cv" path="res://art/rocket/filled_dot.png" id="3_tpb7v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ww0uh"]
 font_color = Color(0.0833333, 1, 0, 1)
@@ -13,3 +15,27 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "ROCKET"
 label_settings = SubResource("LabelSettings_ww0uh")
+
+[node name="RocketOutline" type="Sprite2D" parent="."]
+position = Vector2(61, 74)
+texture = ExtResource("2_r2l15")
+
+[node name="czubek" type="Sprite2D" parent="."]
+position = Vector2(57, 36)
+texture = ExtResource("3_tpb7v")
+
+[node name="lewapletwa" type="Sprite2D" parent="."]
+position = Vector2(2, 110)
+texture = ExtResource("3_tpb7v")
+
+[node name="prawapletwa" type="Sprite2D" parent="."]
+position = Vector2(122, 107)
+texture = ExtResource("3_tpb7v")
+
+[node name="geba" type="Sprite2D" parent="."]
+position = Vector2(55, 75)
+texture = ExtResource("3_tpb7v")
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(58, 117)
+texture = ExtResource("3_tpb7v")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce2spntjlhvo3"]
+
+[ext_resource type="Texture2D" uid="uid://bt2daiuimc5dr" path="res://art/rocket/rocket_outline.png" id="1_l2arl"]
+[ext_resource type="Script" uid="uid://4mqkojiqvrea" path="res://win_screen.gd" id="1_wmwda"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wmwda"]
+font_size = 48
+
+[sub_resource type="Animation" id="Animation_1txte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RocketOutline:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(589, 496)]
+}
+
+[sub_resource type="Animation" id="Animation_l5t5q"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RocketOutline:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667, 1.96667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(589, 496), Vector2(700, 300), Vector2(700, 300), Vector2(700, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26557"]
+_data = {
+&"RESET": SubResource("Animation_1txte"),
+&"new_animation": SubResource("Animation_l5t5q")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wmwda")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 464.0
+offset_top = 145.0
+offset_right = 676.0
+offset_bottom = 212.0
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_wmwda")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_26557")
+}
+
+[node name="RocketOutline" type="Sprite2D" parent="."]
+position = Vector2(589, 496)
+texture = ExtResource("1_l2arl")
