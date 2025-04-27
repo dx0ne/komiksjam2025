@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ccqtceiee0kl5"]
+[gd_scene load_steps=44 format=3 uid="uid://ccqtceiee0kl5"]
 
 [ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Texture2D" uid="uid://c6svltwg3lesa" path="res://art/maschine/Roll_00.png" id="2_8m212"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dar6quq64ekd5" path="res://art/tags/laundry_icon_dry.png" id="25_2px6s"]
 [ext_resource type="Texture2D" uid="uid://dq3fteo23wpdg" path="res://art/tags/laundry_icon_wash.png" id="25_3brdo"]
 [ext_resource type="Texture2D" uid="uid://c8dptsxx88emv" path="res://art/tags/laundry_icon_iron.png" id="25_7256s"]
+[ext_resource type="FontFile" uid="uid://c5eqktkui1vsc" path="res://art/font/digital-7.ttf" id="29_5hsgd"]
 [ext_resource type="PackedScene" uid="uid://le5uke0qc4n4" path="res://hud_lifes.tscn" id="29_s8c5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2px6s"]
@@ -205,8 +206,8 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xqiim"]
-font_size = 32
-font_color = Color(0.0833333, 1, 0, 1)
+font = ExtResource("29_5hsgd")
+font_size = 80
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6614m")
@@ -324,11 +325,13 @@ texture = ExtResource("5_3brdo")
 position = Vector2(-88, 31)
 
 [node name="Slot00" type="AnimatedSprite2D" parent="playerLayer"]
+texture_filter = 1
 position = Vector2(193, 256)
 sprite_frames = SubResource("SpriteFrames_htena")
 metadata/_edit_group_ = true
 
 [node name="Slot01" type="AnimatedSprite2D" parent="playerLayer"]
+texture_filter = 1
 position = Vector2(354, 257)
 sprite_frames = SubResource("SpriteFrames_xqiim")
 metadata/_edit_group_ = true
@@ -495,6 +498,7 @@ texture = ExtResource("25_3brdo")
 
 [node name="RandomDry" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(97.75, 271.625)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_2px6s")
@@ -510,10 +514,10 @@ position = Vector2(936, 270)
 scale = Vector2(0.6, 0.6)
 
 [node name="Points" type="Label" parent="HUD"]
-offset_left = 1067.0
-offset_top = 23.0
-offset_right = 1107.0
-offset_bottom = 68.0
+offset_left = 1016.0
+offset_top = 311.0
+offset_right = 1092.0
+offset_bottom = 370.0
 text = "00"
 label_settings = SubResource("LabelSettings_xqiim")
 
