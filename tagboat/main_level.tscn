@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://ccqtceiee0kl5"]
+[gd_scene load_steps=42 format=3 uid="uid://ccqtceiee0kl5"]
 
 [ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Texture2D" uid="uid://c6svltwg3lesa" path="res://art/maschine/Roll_00.png" id="2_8m212"]
 [ext_resource type="PackedScene" uid="uid://l8pts6tk37vx" path="res://player.tscn" id="2_bhu08"]
 [ext_resource type="Texture2D" uid="uid://cnuxttl477wd8" path="res://art/player_slots/slot00.png" id="3_05as6"]
 [ext_resource type="Texture2D" uid="uid://dip0yjetq4ogb" path="res://art/player_slots/slot01.png" id="4_5ymk8"]
+[ext_resource type="Texture2D" uid="uid://c8w3ngtsw8ap" path="res://art/maschine/Dot_00.png" id="5_3brdo"]
 [ext_resource type="Texture2D" uid="uid://8s77xg53eei8" path="res://art/belt_slots/belt_slot_00.png" id="5_4mnpp"]
 [ext_resource type="Texture2D" uid="uid://c13mgnkllk0wd" path="res://art/player_slots/slot10.png" id="5_x2wht"]
 [ext_resource type="PackedScene" path="res://rocket.tscn" id="5_xqiim"]
@@ -246,6 +247,66 @@ position = Vector2(583.5, 136)
 scale = Vector2(7.38281, 1)
 texture = ExtResource("2_8m212")
 
+[node name="Dot00" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(267, 202)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot10" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(112, 79)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot11" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(112, 193)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot01" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(436, 202)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot02" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(593, 202)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot03" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(749, 202)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot04" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(901, 202)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot05" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(133.5, 454)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot06" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(283.5, 454)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot07" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(452.5, 454)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot08" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(615.5, 454)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot09" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(767.5, 454)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
 [node name="playerLayer" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="playerLayer" instance=ExtResource("2_bhu08")]
@@ -418,19 +479,19 @@ texture = ExtResource("25_7256s")
 [node name="RandomWash" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
 position = Vector2(98, 227.068)
-scale = Vector2(0.327206, 0.327206)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_3brdo")
 
 [node name="RandomDry" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
 position = Vector2(97.75, 266.625)
-scale = Vector2(0.323529, 0.323529)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_2px6s")
 
 [node name="RandomIron" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
 position = Vector2(95.75, 304.625)
-scale = Vector2(0.334559, 0.334559)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_7256s")
 
 [node name="Rocket" parent="HUD" instance=ExtResource("5_xqiim")]
