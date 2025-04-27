@@ -183,8 +183,7 @@ func slap_tag(y_slot:int):
 	if(taken_randomized_tag==Constants.TAG.NONE):
 		print("no item");
 		return;
-	if(y_slot==0):
-		upper_player_slots[player.x_slot].frame=1;
+
 	var fill_result:Constants.FILL_RESULT;
 	for i in belt_items.size():
 		if(belt_items[i].slot==player.x_slot):
@@ -195,6 +194,10 @@ func slap_tag(y_slot:int):
 			refresh_view_belt_slots();
 			deplete_taken_tag();
 			give_random_tag();
+			if(y_slot==0):
+				upper_player_slots[player.x_slot].frame=1;
+			else:
+				lower_player_slots[player.x_slot].frame=1;
 			return;
 
 func deplete_taken_tag():
