@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c8w3ngtsw8ap" path="res://art/maschine/Dot_00.png" id="5_3brdo"]
 [ext_resource type="Texture2D" uid="uid://8s77xg53eei8" path="res://art/belt_slots/belt_slot_00.png" id="5_4mnpp"]
 [ext_resource type="Texture2D" uid="uid://c13mgnkllk0wd" path="res://art/player_slots/slot10.png" id="5_x2wht"]
-[ext_resource type="PackedScene" path="res://rocket.tscn" id="5_xqiim"]
+[ext_resource type="PackedScene" uid="uid://bfjt7a6d15afl" path="res://rocket.tscn" id="5_xqiim"]
 [ext_resource type="Texture2D" uid="uid://cyst5awoqou6h" path="res://art/player_slots/slot20.png" id="6_52es0"]
 [ext_resource type="Texture2D" uid="uid://c08bc465m4pkn" path="res://art/belt_slots/belt_slot_01.png" id="6_ctebd"]
 [ext_resource type="Texture2D" uid="uid://difl8glvbloaj" path="res://art/player_slots/slot30.png" id="7_08fmi"]
