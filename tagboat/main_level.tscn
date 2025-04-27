@@ -307,6 +307,16 @@ position = Vector2(767.5, 454)
 scale = Vector2(1, 0.5)
 texture = ExtResource("5_3brdo")
 
+[node name="Dot12" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(926, 466)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
+[node name="Dot13" type="Sprite2D" parent="Tasma_Gora"]
+position = Vector2(926, 580)
+scale = Vector2(1, 0.5)
+texture = ExtResource("5_3brdo")
+
 [node name="playerLayer" type="CanvasLayer" parent="."]
 
 [node name="Player" parent="playerLayer" instance=ExtResource("2_bhu08")]
@@ -363,7 +373,7 @@ sprite_frames = SubResource("SpriteFrames_t3g51")
 metadata/_edit_group_ = true
 
 [node name="Box00" type="Sprite2D" parent="playerLayer"]
-position = Vector2(86, 134)
+position = Vector2(74, 134)
 scale = Vector2(0.400862, 0.400862)
 texture = ExtResource("12_386tm")
 
@@ -495,7 +505,8 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_7256s")
 
 [node name="Rocket" parent="HUD" instance=ExtResource("5_xqiim")]
-position = Vector2(997, 216)
+position = Vector2(936, 270)
+scale = Vector2(0.6, 0.6)
 
 [node name="Points" type="Label" parent="HUD"]
 offset_left = 1067.0
