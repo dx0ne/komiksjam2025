@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfjt7a6d15afl"]
+
+[ext_resource type="Script" uid="uid://bvf86pty5y1t8" path="res://rocket.gd" id="1_fj03e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ww0uh"]
+font_color = Color(0.0833333, 1, 0, 1)
+
+[node name="Rocket" type="Node2D"]
+script = ExtResource("1_fj03e")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ROCKET"
+label_settings = SubResource("LabelSettings_ww0uh")

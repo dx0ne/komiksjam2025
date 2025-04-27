@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var player:Player;
 
-@onready var upper_player_slots:Array[Sprite2D] = [$playerLayer/Slot00, $playerLayer/Slot01, $playerLayer/Slot02, $playerLayer/Slot03, $playerLayer/Slot04];
-@onready var lower_player_slots:Array[Sprite2D] = [$playerLayer/Slot10, $playerLayer/Slot11, $playerLayer/Slot12, $playerLayer/Slot13, $playerLayer/Slot14];
+@onready var upper_player_slots:Array[AnimatedSprite2D] = [$playerLayer/Slot00, $playerLayer/Slot01, $playerLayer/Slot02, $playerLayer/Slot03, $playerLayer/Slot04];
+@onready var lower_player_slots:Array[AnimatedSprite2D] = [$playerLayer/Slot10, $playerLayer/Slot11, $playerLayer/Slot12, $playerLayer/Slot13, $playerLayer/Slot14];
 
 @onready var upper_tags:Array[Tags] = [$CanvasLayer/Node2D, $CanvasLayer/Node2D2, $CanvasLayer/Node2D3, $CanvasLayer/Node2D4, $CanvasLayer/Node2D5];
 @onready var lower_tags:Array[Tags] = [$CanvasLayer/Node2D6, $CanvasLayer/Node2D7, $CanvasLayer/Node2D8, $CanvasLayer/Node2D10, $CanvasLayer/Node2D9];
@@ -63,8 +63,10 @@ func _on_player_moved(x: Variant, y: Variant) -> void:
 func hide_all_player_slots():
 	for i in upper_player_slots.size():
 		upper_player_slots[i].visible=false;
+		upper_player_slots[i].frame=0;
 	for i in lower_player_slots.size():
 		lower_player_slots[i].visible=false;
+		lower_player_slots[i].frame=0;
 		
 func belt_timer_tick():
 	var ts:Tshirt;
@@ -177,10 +179,12 @@ func trash():
 	%Trash.frame=trash_fill;
 	pass;
 
-func slap_tag(y_slot:bool):
+func slap_tag(y_slot:int):
 	if(taken_randomized_tag==Constants.TAG.NONE):
 		print("no item");
 		return;
+	if(y_slot==0):
+		upper_player_slots[player.x_slot].frame=1;
 	var fill_result:Constants.FILL_RESULT;
 	for i in belt_items.size():
 		if(belt_items[i].slot==player.x_slot):
