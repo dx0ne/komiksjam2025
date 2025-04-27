@@ -1,19 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://beobgxurrrert"]
+[gd_scene load_steps=3 format=3 uid="uid://le5uke0qc4n4"]
 
-[ext_resource type="Texture2D" uid="uid://cuux3swflq5cv" path="res://art/rocket/filled_dot.png" id="1_byuqp"]
-[ext_resource type="Script" uid="uid://bu84wkyhpha0h" path="res://hud_lifes.gd" id="1_yb0cq"]
+[ext_resource type="Script" path="res://hud_lifes.gd" id="1_yb0cq"]
+[ext_resource type="Texture2D" uid="uid://fmf54r4bxofs" path="res://art/head/head_00.png" id="2_yb0cq"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yb0cq")
 
 [node name="FilledDot" type="Sprite2D" parent="."]
-position = Vector2(30, 25)
-texture = ExtResource("1_byuqp")
+position = Vector2(32, 30)
+scale = Vector2(0.315891, 0.315891)
+texture = ExtResource("2_yb0cq")
 
 [node name="FilledDot2" type="Sprite2D" parent="."]
-position = Vector2(32, 78)
-texture = ExtResource("1_byuqp")
+position = Vector2(82, 30)
+scale = Vector2(0.316, 0.316)
+texture = ExtResource("2_yb0cq")
 
 [node name="FilledDot3" type="Sprite2D" parent="."]
-position = Vector2(33, 130)
-texture = ExtResource("1_byuqp")
+position = Vector2(134, 30)
+scale = Vector2(0.316, 0.316)
+texture = ExtResource("2_yb0cq")

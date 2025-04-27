@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dar6quq64ekd5" path="res://art/tags/laundry_icon_dry.png" id="25_2px6s"]
 [ext_resource type="Texture2D" uid="uid://dq3fteo23wpdg" path="res://art/tags/laundry_icon_wash.png" id="25_3brdo"]
 [ext_resource type="Texture2D" uid="uid://c8dptsxx88emv" path="res://art/tags/laundry_icon_iron.png" id="25_7256s"]
-[ext_resource type="PackedScene" uid="uid://beobgxurrrert" path="res://hud_lifes.tscn" id="29_s8c5p"]
+[ext_resource type="PackedScene" uid="uid://le5uke0qc4n4" path="res://hud_lifes.tscn" id="29_s8c5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2px6s"]
 animations = [{
@@ -495,13 +495,13 @@ texture = ExtResource("25_3brdo")
 
 [node name="RandomDry" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
-position = Vector2(97.75, 266.625)
+position = Vector2(97.75, 271.625)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_2px6s")
 
 [node name="RandomIron" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
-position = Vector2(95.75, 304.625)
+position = Vector2(95.75, 313.625)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("25_7256s")
 
@@ -519,7 +519,7 @@ label_settings = SubResource("LabelSettings_xqiim")
 
 [node name="Lifes" parent="HUD" instance=ExtResource("29_s8c5p")]
 unique_name_in_owner = true
-position = Vector2(7, 249)
+position = Vector2(740, 8)
 
 [connection signal="action" from="playerLayer/Player" to="." method="_on_player_action"]
 [connection signal="moved" from="playerLayer/Player" to="." method="_on_player_moved"]
