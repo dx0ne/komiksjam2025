@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ccqtceiee0kl5"]
+[gd_scene load_steps=41 format=3 uid="uid://ccqtceiee0kl5"]
 
 [ext_resource type="Script" uid="uid://c5f8nhqfamnwi" path="res://main_level.gd" id="1_6614m"]
 [ext_resource type="Texture2D" uid="uid://c6svltwg3lesa" path="res://art/maschine/Roll_00.png" id="2_8m212"]
@@ -13,17 +13,20 @@
 [ext_resource type="Texture2D" uid="uid://difl8glvbloaj" path="res://art/player_slots/slot30.png" id="7_08fmi"]
 [ext_resource type="PackedScene" uid="uid://cbtdcsxopxttv" path="res://tags.tscn" id="7_ctebd"]
 [ext_resource type="Texture2D" uid="uid://pxnfn12rvy6g" path="res://art/player_slots/slot40.png" id="8_8m212"]
-[ext_resource type="Texture2D" uid="uid://d1arnxvvqm1vb" path="res://art/tags/laundry_icon_wash_full.png" id="9_oeaww"]
-[ext_resource type="Texture2D" uid="uid://bjbqy6j0tanv7" path="res://art/tags/laundry_icon_iron_full.png" id="10_aonjr"]
-[ext_resource type="Texture2D" uid="uid://dqdw2tdbga11k" path="res://art/tags/laundry_icon_dry_full.png" id="11_do8ha"]
+[ext_resource type="Texture2D" uid="uid://bfbaw7fol4pfi" path="res://art/player_slots/slot02.png" id="8_7256s"]
+[ext_resource type="Texture2D" uid="uid://cxoa6l52nn8tt" path="res://art/player_slots/slot03.png" id="9_3brdo"]
 [ext_resource type="Texture2D" uid="uid://cvbcnrft40mc6" path="res://art/trash/trash0.png" id="11_htena"]
 [ext_resource type="Texture2D" uid="uid://dgby3tbiyk7pr" path="res://art/belt_slots/belt_slot_10.png" id="12_08fmi"]
+[ext_resource type="Texture2D" uid="uid://87wen00ykqfy" path="res://art/maschine/Box_00.png" id="12_386tm"]
 [ext_resource type="Texture2D" uid="uid://htuldu4gm64" path="res://art/trash/trash1.png" id="12_xqiim"]
 [ext_resource type="Texture2D" uid="uid://bkdyohif7m3g1" path="res://art/trash/trash2.png" id="13_6pb3s"]
 [ext_resource type="Texture2D" uid="uid://mqfvf4c1f8es" path="res://art/belt_slots/belt_slot_11.png" id="13_8m212"]
 [ext_resource type="Texture2D" uid="uid://dsqyian2swg1d" path="res://art/trash/trash3.png" id="14_e3ldi"]
 [ext_resource type="Texture2D" uid="uid://dktfocetyf3e1" path="res://art/maschine/Maschine_00.png" id="23_t3g51"]
 [ext_resource type="Texture2D" uid="uid://bbgy8pcd8nitc" path="res://art/maschine/Maschine_01.png" id="24_386tm"]
+[ext_resource type="Texture2D" uid="uid://dar6quq64ekd5" path="res://art/tags/laundry_icon_dry.png" id="25_2px6s"]
+[ext_resource type="Texture2D" uid="uid://dq3fteo23wpdg" path="res://art/tags/laundry_icon_wash.png" id="25_3brdo"]
+[ext_resource type="Texture2D" uid="uid://c8dptsxx88emv" path="res://art/tags/laundry_icon_iron.png" id="25_7256s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2px6s"]
 animations = [{
@@ -57,10 +60,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_05as6")
+"texture": ExtResource("8_7256s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5ymk8")
+"texture": ExtResource("9_3brdo")
 }],
 "loop": true,
 "name": &"default",
@@ -85,10 +88,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_05as6")
+"texture": ExtResource("8_7256s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5ymk8")
+"texture": ExtResource("9_3brdo")
 }],
 "loop": true,
 "name": &"default",
@@ -209,7 +212,7 @@ script = ExtResource("1_6614m")
 [node name="bgLayer" type="CanvasLayer" parent="."]
 
 [node name="Maschine" type="AnimatedSprite2D" parent="."]
-position = Vector2(107, 544)
+position = Vector2(61, 520)
 scale = Vector2(0.64259, 0.64259)
 sprite_frames = SubResource("SpriteFrames_2px6s")
 autoplay = "default"
@@ -227,74 +230,20 @@ frame_progress = 0.401388
 
 [node name="Tasma_Dol" type="CanvasLayer" parent="."]
 
-[node name="Trash3" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(243, 545)
-texture = ExtResource("2_8m212")
-
 [node name="Trash10" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(109, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash4" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(378, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash5" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(512, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash6" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(646, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash7" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(779, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash8" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(912, 545)
-texture = ExtResource("2_8m212")
-
-[node name="Trash9" type="Sprite2D" parent="Tasma_Dol"]
-position = Vector2(912, 545)
+position = Vector2(487, 523)
+scale = Vector2(6.90625, 1)
 texture = ExtResource("2_8m212")
 
 [node name="Tasma_Gora" type="CanvasLayer" parent="."]
-
-[node name="Trash3" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(243, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash10" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(109, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash4" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(378, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash5" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(512, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash6" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(646, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash7" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(779, 136)
-texture = ExtResource("2_8m212")
 
 [node name="Trash8" type="Sprite2D" parent="Tasma_Gora"]
 position = Vector2(912, 136)
 texture = ExtResource("2_8m212")
 
 [node name="Trash9" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(912, 136)
-texture = ExtResource("2_8m212")
-
-[node name="Trash11" type="Sprite2D" parent="Tasma_Gora"]
-position = Vector2(1046, 136)
+position = Vector2(583.5, 136)
+scale = Vector2(7.38281, 1)
 texture = ExtResource("2_8m212")
 
 [node name="playerLayer" type="CanvasLayer" parent="."]
@@ -308,106 +257,116 @@ sprite_frames = SubResource("SpriteFrames_htena")
 metadata/_edit_group_ = true
 
 [node name="Slot01" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(358, 257)
+position = Vector2(354, 257)
 sprite_frames = SubResource("SpriteFrames_xqiim")
 metadata/_edit_group_ = true
 
 [node name="Slot02" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(541, 254.5)
+position = Vector2(516, 257.5)
 sprite_frames = SubResource("SpriteFrames_6pb3s")
 metadata/_edit_group_ = true
 
 [node name="Slot03" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(709, 256)
+position = Vector2(674, 256)
 sprite_frames = SubResource("SpriteFrames_e3ldi")
 metadata/_edit_group_ = true
 
 [node name="Slot04" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(871, 260)
+position = Vector2(836, 257)
 sprite_frames = SubResource("SpriteFrames_x2wht")
 metadata/_edit_group_ = true
 
 [node name="Slot10" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(191, 406.5)
+position = Vector2(194, 376.5)
 sprite_frames = SubResource("SpriteFrames_52es0")
 metadata/_edit_group_ = true
 
 [node name="Slot11" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(367, 403)
+position = Vector2(355, 373)
 sprite_frames = SubResource("SpriteFrames_08fmi")
 metadata/_edit_group_ = true
 
 [node name="Slot12" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(550, 399)
+position = Vector2(520, 369)
 sprite_frames = SubResource("SpriteFrames_8m212")
 metadata/_edit_group_ = true
 
 [node name="Slot13" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(709, 401)
+position = Vector2(681, 371)
 sprite_frames = SubResource("SpriteFrames_xjl4t")
 metadata/_edit_group_ = true
 
 [node name="Slot14" type="AnimatedSprite2D" parent="playerLayer"]
-position = Vector2(887, 400)
+position = Vector2(853, 370)
 sprite_frames = SubResource("SpriteFrames_t3g51")
 metadata/_edit_group_ = true
+
+[node name="Box00" type="Sprite2D" parent="playerLayer"]
+position = Vector2(86, 134)
+scale = Vector2(0.400862, 0.400862)
+texture = ExtResource("12_386tm")
+
+[node name="Box01" type="Sprite2D" parent="playerLayer"]
+position = Vector2(965, 523)
+scale = Vector2(0.400862, 0.400862)
+texture = ExtResource("12_386tm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Node2D" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(123, 15)
+position = Vector2(245, 78)
 
 [node name="Node2D2" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(320, 15)
+position = Vector2(414, 77)
 
 [node name="Node2D3" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(473, 15)
+position = Vector2(573, 78)
 
 [node name="Node2D4" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(655, 15)
+position = Vector2(727, 78)
 
 [node name="Node2D5" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(813, 16)
+position = Vector2(879, 79)
 
 [node name="Node2D6" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(115, 599)
+position = Vector2(115, 468)
 
 [node name="Node2D7" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(316, 599)
+position = Vector2(291, 465)
 
 [node name="Node2D8" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(500, 594)
+position = Vector2(448, 465)
 
 [node name="Node2D10" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(673, 596)
+position = Vector2(612, 465)
 
 [node name="Node2D9" parent="CanvasLayer" instance=ExtResource("7_ctebd")]
-position = Vector2(838, 594)
+position = Vector2(774, 464)
 
 [node name="tshirtLayer" type="CanvasLayer" parent="."]
 
 [node name="BeltSlot00" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(186, 136.5)
+position = Vector2(204, 136.5)
 texture = ExtResource("5_4mnpp")
 
 [node name="BeltSlot01" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(382, 138)
+position = Vector2(377, 138)
 texture = ExtResource("6_ctebd")
 
 [node name="BeltSlot02" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(533, 139.5)
+position = Vector2(529, 139.5)
 texture = ExtResource("5_4mnpp")
 
 [node name="BeltSlot03" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(725, 139.5)
+position = Vector2(689, 139.5)
 texture = ExtResource("6_ctebd")
 
 [node name="BeltSlot04" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(869, 142)
+position = Vector2(834, 142)
 texture = ExtResource("5_4mnpp")
 
 [node name="BeltSlot10" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(190, 532.5)
+position = Vector2(190, 524.5)
 texture = ExtResource("12_08fmi")
 
 [node name="BeltSlot11" type="Sprite2D" parent="tshirtLayer"]
@@ -415,20 +374,20 @@ position = Vector2(363, 527)
 texture = ExtResource("13_8m212")
 
 [node name="BeltSlot12" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(565, 530)
+position = Vector2(525, 527)
 texture = ExtResource("12_08fmi")
 
 [node name="BeltSlot13" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(718, 523)
+position = Vector2(688, 529)
 texture = ExtResource("13_8m212")
 
 [node name="BeltSlot14" type="Sprite2D" parent="tshirtLayer"]
-position = Vector2(902, 530)
+position = Vector2(844, 526)
 texture = ExtResource("12_08fmi")
 
 [node name="Trash" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1034, 401)
+position = Vector2(983, 416)
 sprite_frames = SubResource("SpriteFrames_ah7fh")
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -438,41 +397,41 @@ position = Vector2(999, 492)
 
 [node name="TakenWash" type="Sprite2D" parent="HUD/TakenTags"]
 unique_name_in_owner = true
-position = Vector2(32.5, 48.511)
+position = Vector2(61.5, 61.5111)
 scale = Vector2(0.404412, 0.404412)
-texture = ExtResource("9_oeaww")
+texture = ExtResource("25_3brdo")
 
 [node name="TakenDry" type="Sprite2D" parent="HUD/TakenTags"]
 unique_name_in_owner = true
-position = Vector2(36.5, 103.511)
+position = Vector2(65.5, 116.511)
 scale = Vector2(0.382353, 0.382353)
-texture = ExtResource("11_do8ha")
+texture = ExtResource("25_2px6s")
 
 [node name="TakenIron" type="Sprite2D" parent="HUD/TakenTags"]
 unique_name_in_owner = true
-position = Vector2(83.5, 64.511)
+position = Vector2(112.5, 77.5111)
 scale = Vector2(0.507353, 0.507353)
-texture = ExtResource("10_aonjr")
+texture = ExtResource("25_7256s")
 
 [node name="RandomTags" type="Node2D" parent="HUD"]
 
 [node name="RandomWash" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
-position = Vector2(47, 237)
-scale = Vector2(0.404412, 0.404412)
-texture = ExtResource("9_oeaww")
+position = Vector2(98, 227.068)
+scale = Vector2(0.327206, 0.327206)
+texture = ExtResource("25_3brdo")
 
 [node name="RandomDry" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
-position = Vector2(51, 292)
-scale = Vector2(0.382353, 0.382353)
-texture = ExtResource("11_do8ha")
+position = Vector2(97.75, 266.625)
+scale = Vector2(0.323529, 0.323529)
+texture = ExtResource("25_2px6s")
 
 [node name="RandomIron" type="Sprite2D" parent="HUD/RandomTags"]
 unique_name_in_owner = true
-position = Vector2(98, 253)
-scale = Vector2(0.507353, 0.507353)
-texture = ExtResource("10_aonjr")
+position = Vector2(95.75, 304.625)
+scale = Vector2(0.334559, 0.334559)
+texture = ExtResource("25_7256s")
 
 [node name="Rocket" parent="HUD" instance=ExtResource("5_xqiim")]
 position = Vector2(997, 216)

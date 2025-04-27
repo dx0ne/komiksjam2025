@@ -17,12 +17,12 @@ scale = Vector2(0.283616, 0.2776)
 texture = ExtResource("1_1nfob")
 
 [node name="LaundryIconDry" type="Sprite2D" parent="."]
-position = Vector2(58.4283, 19.1391)
+position = Vector2(19.5718, 55.8608)
 scale = Vector2(0.28782, 0.281714)
 texture = ExtResource("3_2q1o5")
 
 [node name="LaundryIconIron" type="Sprite2D" parent="."]
-position = Vector2(95.9283, 19.6465)
+position = Vector2(20.0717, 95.3682)
 scale = Vector2(0.295172, 0.288911)
 texture = ExtResource("2_07856")
 
@@ -32,16 +32,11 @@ scale = Vector2(0.283616, 0.2776)
 texture = ExtResource("5_tt3ui")
 
 [node name="LaundryIconDry2" type="Sprite2D" parent="."]
-position = Vector2(58.4283, 19.1391)
+position = Vector2(19.5718, 55.8608)
 scale = Vector2(0.28782, 0.281714)
 texture = ExtResource("6_e32rg")
 
 [node name="LaundryIconIron2" type="Sprite2D" parent="."]
-position = Vector2(95.9283, 19.6465)
+position = Vector2(20.0717, 95.3682)
 scale = Vector2(0.295172, 0.288911)
 texture = ExtResource("7_i0un5")
-
-[node name="line" type="Sprite2D" parent="."]
-position = Vector2(58, 43.5)
-scale = Vector2(0.852941, 0.0496454)
-texture = ExtResource("5_tt3ui")
